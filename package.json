@@ -1,0 +1,9 @@
+{
+  "name": "frost-web-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/jovanreyesdev/FrostWebApi.git",
+  "author": "Jovan Reyes",
+  "license": "MIT",
+  "private": false
+}
