@@ -6,12 +6,13 @@ const router = express.Router();
 const { API_BASE_URI, API_CLIENT_ID } = process.env;
 
 const observationController = () => {
-  router.get('/get/:sourceId', async (req, res) => {
+  router.get('/get/:sourceId?', async (req, res) => {
 
     const { sourceId } = req.params;
+    const { range } = req.query;
 
     const response = await axios
-      .get('/observations/v0.jsonld?sources=SN18700&referencetime=2019-11-25%2F2019-11-25&elements=air_temperature%2Cwind_speed%2Cboolean_fair_weather(cloud_area_fraction%20P1D)');
+      .get(`/observations/v0.jsonld?sources=SN18700&referencetime=${range}&elements=air_temperature%2Cwind_speed%2Cboolean_fair_weather(cloud_area_fraction%20P1D)`);
 
     res.send({
       ...response.data,

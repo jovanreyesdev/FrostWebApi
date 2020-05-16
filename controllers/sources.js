@@ -15,6 +15,18 @@ const sourceController = () => {
     });
   });
 
+  router.get('/get/:sourceId', async (req, res) => {
+
+    const { sourceId } = req.params;
+
+    const response = await axios
+      .get(`/sources/v0.jsonld?ids=${sourceId}`);
+
+    res.send({
+      ...response.data,
+    });
+  });
+
   return router;
 };
 
