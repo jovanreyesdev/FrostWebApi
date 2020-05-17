@@ -1,11 +1,14 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const sourcesController = require('./controllers/sources');
 const observationsController = require('./controllers/observations');
 
 const server = express();
+
+server.use(cors());
 
 server.use(bodyParser.json());
 
